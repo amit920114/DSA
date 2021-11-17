@@ -5,6 +5,7 @@
 # 4. Level-wise order
 
 # 1. PRE ORDER
+import queue
 
 
 class BinaryTree:
@@ -53,6 +54,32 @@ def takeInput():
     return root
 
 
+def treeInput():
+    q = queue.Queue()
+    print("Enter root:")
+    rootData = int(input())
+    if rootData == -1:
+        return
+    root = BinaryTree(rootData)
+    q.put(root)
+    while not q.empty():
+        currentNode = q.get()
+        print("Enter left Child of ", currentNode.Data)
+        leftChildData = int(input())
+        leftChild = BinaryTree(leftChildData)
+        if leftChildData != -1:
+            currentNode.left = leftChild
+            q.put(leftChild)
+
+        print("Enter right Child of ", currentNode.Data)
+        rightChildData = int(input())
+        rightChild = BinaryTree(rightChildData)
+        if rightChildData != -1:
+            currentNode.right = rightChild
+            q.put(rightChild)
+    return root
+
+
 def printInline(root):
     if root is None:
         return
@@ -61,8 +88,11 @@ def printInline(root):
     printInline(root.right)
 
 
-root = takeInput()
-# printBTreePre(root)
-# printBTreePost(root)
+root = treeInput()
+printBTreePre(root)
+print()
+printBTreePost(root)
+print()
+
 # printPreOrder(root)
 printInline(root)

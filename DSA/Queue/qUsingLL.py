@@ -17,11 +17,8 @@ class Queue:
         newNode = Node(data)
         if self.__head is None:
             self.__head = newNode
-            # self.__tail = newNode
-            # self.__count += 1
         else:
             self.__tail.Next = newNode
-            # self.__tail = self.__tail.Next
         self.__tail = newNode
         self.__count += 1
 

@@ -1,4 +1,5 @@
 # Count number of Leaf Nodes:-
+import queue
 
 
 class BinaryTree:
@@ -6,6 +7,32 @@ class BinaryTree:
         self.Data = data
         self.left = None
         self.right = None
+
+
+def treeInput():
+    q = queue.Queue()
+    print("Enter root:")
+    rootData = int(input())
+    if rootData == -1:
+        return
+    root = BinaryTree(rootData)
+    q.put(root)
+    while not q.empty():
+        currentNode = q.get()
+        print("Enter left Child of ", currentNode.Data)
+        leftChildData = int(input())
+        leftChild = BinaryTree(leftChildData)
+        if leftChildData != -1:
+            currentNode.left = leftChild
+            q.put(leftChild)
+
+        print("Enter right Child of ", currentNode.Data)
+        rightChildData = int(input())
+        rightChild = BinaryTree(rightChildData)
+        if rightChildData != -1:
+            currentNode.right = rightChild
+            q.put(rightChild)
+    return root
 
 
 def printBT(root):
@@ -41,6 +68,6 @@ def leafNodes(root):
     return left + right
 
 
-root = takeInput()
+root = treeInput()
 printBT(root)
 print(leafNodes(root))

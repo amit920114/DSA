@@ -68,12 +68,12 @@ def bstV2(root, x):
     if root.Data > x:
         return bstV2(root.left, x)
     else:
-        return bstV2(root.right)
+        return bstV2(root.right, x)
 
 
 root = takeInput()
 printBT(root)
 print()
 # print(bst(root, 6))
-bsT = bstV2(root, 5)
+bsT = bstV2(root, 6)
 printBT(bsT)

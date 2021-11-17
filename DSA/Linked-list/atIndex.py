@@ -24,24 +24,6 @@ def linkedList():
     return head
 
 
-# <--------------------IgNoreee------------------------>
-
-# def apendToLast(head,position):
-#     current = head
-#     count = 0
-#     fixedHead = head
-#     while current:
-#         if count == position:
-#             head = current
-#             while head:
-#                 head.Next = current.Next
-#             if fixedHead == current:
-#                 break
-#             if head is None:
-#                 head.Next = fixedHead
-# <---------------------------IgNoreee------------------>
-
-
 def printLL(head):
     while head:
         print(str(head.Data) + "->", end="")
@@ -69,6 +51,6 @@ def findNode(head, item):
 head = linkedList()
 printLL(head)
 # op = findNode(head, 1) --> Worked
-op = findNode(head, 9)
+print(findNode(head, 9))
 
-print(op)
+# print(op)
